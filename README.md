@@ -7,7 +7,7 @@ Features:
  - Tree shaking
  - Code splitting
  - Minimal footprint (the entire boilerplate index page is 50K including CSS)
- - Route in place
+ - Routing with riot-route
 
 ## Install
 
