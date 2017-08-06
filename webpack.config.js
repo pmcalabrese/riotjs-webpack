@@ -18,8 +18,8 @@ module.exports = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, './public'),
-    publicPath: 'public/',
+    // path: path.resolve(__dirname, './public'),
+    // publicPath: '',
     filename: 'bundle.js',
     chunkFilename: "[chunkhash].[id].chunk.js"
   },
@@ -36,7 +36,8 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     // new HtmlWebpackPlugin(),
     new CopyWebpackPlugin([
-      // { from: 'index.html' }
+      { from: 'src/index.html' },
+      { from: 'service-worker.js'}
     ]),
     new webpack.ProvidePlugin({ riot: 'riot' }),
     // new webpack.optimize.UglifyJsPlugin({

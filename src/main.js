@@ -2,6 +2,13 @@ import riot from 'riot';
 import route from 'riot-route';
 
 var $app = document.querySelector('#app-root');
+var $nav = document.querySelector('#nav-root');
+
+require.ensure([], () => {
+  require('./navigation/navigation.tag.html');;
+  $nav.innerHTML = "<navigation></navigation>";
+  riot.mount('navigation', {});
+});
 
 route('/', (name) => {
   require.ensure([], () => {

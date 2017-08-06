@@ -7,6 +7,7 @@ Features:
  - Webpack 3
  - Tree shaking
  - Code splitting
+ - SW with sw-precache [https://github.com/GoogleChrome/sw-precache](https://github.com/GoogleChrome/sw-precache)
  - Minimal footprint (the entire boilerplate index page is 50K including CSS)
  - Routing with riot-route
 
