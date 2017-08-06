@@ -1,4 +1,4 @@
-# Riot Webpack 3 boilerplate
+# RiotJS & Webpack 3 boilerplate
 [https://pmcalabrese.github.io/riotjs-webpack/](https://pmcalabrese.github.io/riotjs-webpack/)
 
 Features:
