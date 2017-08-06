@@ -37,7 +37,8 @@ module.exports = {
     // new HtmlWebpackPlugin(),
     new CopyWebpackPlugin([
       { from: 'src/index.html' },
-      { from: 'service-worker.js'}
+      { from: 'service-worker.js'},
+      { from: 'src/manifest.json'}
     ]),
     new webpack.ProvidePlugin({ riot: 'riot' }),
     // new webpack.optimize.UglifyJsPlugin({
