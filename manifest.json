@@ -1,0 +1,8 @@
+{
+  "name": "Boilerplate",
+  "short_name": "RiotJS",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#fff",
+  "description": "A simpl manifest for the boilerplate"
+}
