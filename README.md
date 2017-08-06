@@ -22,6 +22,12 @@ npm install
 npm start
 ```
 
+## Build for production
+
+```bash
+npm run build
+```
+
 ## Build for production and run on a local server
 
 ```bash
