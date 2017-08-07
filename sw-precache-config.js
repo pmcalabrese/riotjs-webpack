@@ -7,6 +7,13 @@ module.exports = {
       'src/app/app.tag.html',
       'src/app/app.tag.js'
     ],
+    '/#/': [
+      'index.html',
+      'src/navigation/navigation.tag.html',
+      'src/navigation/navigation.tag.js',
+      'src/app/app.tag.html',
+      'src/app/app.tag.js'
+    ],
     '/#/another': [
       'index.html',
       'src/navigation/navigation.tag.html',
@@ -17,7 +24,7 @@ module.exports = {
   },
   staticFileGlobs: [
     '**.css',
-    '**chunk.js',
+    '**.chunk.js',
     'bundle.js'
   ]
 };

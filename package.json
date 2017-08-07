@@ -13,7 +13,7 @@
     "start": "webpack-dev-server --inline --watch --hot --colors -d --port 3000",
     "build": "webpack",
     "build-serve": "rm -rf public && npm run build && npm run sw && npm run serve",
-    "serve": "live-server --port=4200 --spa --host=localhost --entry-file=/public/index.html",
+    "serve": "http-server",
     "sw": "sw-precache --config=sw-precache-config.js"
   },
   "keywords": [
