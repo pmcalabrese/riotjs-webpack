@@ -1,4 +1,5 @@
 module.exports = {
+  replacePrefix: "riotjs-webpack",
   dynamicUrlToDependencies: {
     '/': [
       'src/index.html',
