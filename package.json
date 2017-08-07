@@ -15,7 +15,8 @@
     "build-serve": "rm -rf public && npm run build && npm run sw && npm run serve",
     "serve": "http-server",
     "sw": "sw-precache --config=sw-precache-config.js",
-    "ghp": "git subtree push --prefix public origin gh-pages"
+    "ghp": "git subtree push --prefix public origin gh-pages",
+    "build-ghp": "rm -rf public && npm run build && npm run sw && npm run ghp"
   },
   "keywords": [
     "riot",
