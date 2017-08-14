@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CommonsPlugin = new require("webpack/lib/optimize/CommonsChunkPlugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   "resolveLoader": {
@@ -16,11 +17,14 @@ module.exports = {
     app: [
       "./src/main.js"
     ],
+    styles: [
+      "./src/styles.scss"
+    ]
   },
   output: {
     path: path.resolve(__dirname, './public'),
     publicPath: '',
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     chunkFilename: "[chunkhash].[id].chunk.js"
   },
   plugins: [
@@ -35,10 +39,24 @@ module.exports = {
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
     // new HtmlWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      "template": "./src/index.html",
+      "filename": "./index.html",
+      "hash": true,
+      "inject": true,
+      "compile": true,
+      "favicon": false,
+      "minify": false,
+      "cache": true,
+      "showErrors": true,
+      "chunks": "all",
+      "excludeChunks": [],
+      "title": "Webpack App",
+      "xhtml": true
+    }),
     new CopyWebpackPlugin([
-      { from: 'src/index.html' },
-      { from: 'service-worker.js'},
-      { from: 'src/manifest.json'}
+      { from: 'service-worker.js' },
+      { from: 'src/manifest.json' }
     ]),
     new webpack.ProvidePlugin({ riot: 'riot' }),
     // new webpack.optimize.UglifyJsPlugin({
@@ -91,6 +109,23 @@ module.exports = {
           presets: ["stage-3", "stage-2", "stage-1", "es2015"],
           plugins: ["autobind-class-methods", "babel-plugin-transform-class-properties"]
         },
+      },
+      // {
+      //   test: /\.(scss|sass)$/i,
+      //     include: [
+      //         path.resolve(__dirname, 'node_modules')
+      //     ],
+      //     loaders: ["css", "sass"]
+      // },
+      {
+        test: /\.scss$/,
+        use: [{
+          loader: "style-loader" // creates style nodes from JS strings
+        }, {
+          loader: "css-loader" // translates CSS into CommonJS
+        }, {
+          loader: "sass-loader" // compiles Sass to CSS
+        }]
       }
     ]
   }
