@@ -6,6 +6,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const CommonsPlugin = new require("webpack/lib/optimize/CommonsChunkPlugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+
+const PUBLIC_PATH = 'https://pmcalabrese.github.io/';
 
 module.exports = {
   "resolveLoader": {
@@ -28,6 +31,16 @@ module.exports = {
     chunkFilename: "[chunkhash].[id].chunk.js"
   },
   plugins: [
+    new SWPrecacheWebpackPlugin(
+      {
+        cacheId: 'my-project-name',
+        dontCacheBustUrlsMatching: /\.\w{8}\./,
+        filename: 'service-worker.js',
+        minify: true,
+        navigateFallback: PUBLIC_PATH + 'index.html',
+        staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
+      }
+    ),
     new UglifyJSPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',

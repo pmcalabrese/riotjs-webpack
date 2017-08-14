@@ -25,7 +25,7 @@ module.exports = {
   },
   staticFileGlobs: [
     '**.css',
-    '**.chunk.js',
-    'bundle.js'
+    '**.chunk.js**',
+    '**.bundle.js**'
   ]
 };
