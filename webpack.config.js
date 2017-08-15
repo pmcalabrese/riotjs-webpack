@@ -9,6 +9,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
 const PUBLIC_PATH = 'https://pmcalabrese.github.io/';
+const SERVICE_WORKER_FILENAME = 'service-worker.js';
 
 module.exports = {
   "resolveLoader": {
@@ -33,7 +34,7 @@ module.exports = {
   plugins: [
     new SWPrecacheWebpackPlugin(
       {
-        cacheId: 'my-project-name',
+        cacheId: 'riotjs',
         dontCacheBustUrlsMatching: /\.\w{8}\./,
         filename: 'service-worker.js',
         minify: true,
@@ -53,22 +54,22 @@ module.exports = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     // new HtmlWebpackPlugin(),
     new HtmlWebpackPlugin({
-      "template": "./src/index.html",
-      "filename": "./index.html",
-      "hash": true,
-      "inject": true,
-      "compile": true,
-      "favicon": false,
-      "minify": false,
-      "cache": true,
-      "showErrors": true,
-      "chunks": "all",
-      "excludeChunks": [],
-      "title": "Webpack App",
-      "xhtml": true
+      template: "./src/index.html",
+      filename: "./index.html",
+      hash: true,
+      inject: true,
+      compile: true,
+      favicon: false,
+      minify: false,
+      cache: true,
+      showErrors: true,
+      chunks: "all",
+      excludeChunks: [],
+      title: "Webpack App",
+      xhtml: true,
+      serviceWorker: `/${SERVICE_WORKER_FILENAME}`,
     }),
     new CopyWebpackPlugin([
-      { from: 'service-worker.js' },
       { from: 'src/manifest.json' }
     ]),
     new webpack.ProvidePlugin({ riot: 'riot' }),
