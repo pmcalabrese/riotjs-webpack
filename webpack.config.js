@@ -8,7 +8,7 @@ const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
 
-const PUBLIC_PATH = 'https://pmcalabrese.github.io/';
+const PUBLIC_PATH = 'https://pmcalabrese.github.io/riotjs-webpack/';
 const SERVICE_WORKER_FILENAME = 'service-worker.js';
 
 module.exports = {
