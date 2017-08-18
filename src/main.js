@@ -11,18 +11,25 @@ require.ensure([], () => {
 });
 
 route('/', (name) => {
-  require.ensure([], () => {
-    require('./app/app.tag.html');;
+  import('./app/app.tag.html').then(() => {
     $app.innerHTML = "<app></app>";
     riot.mount('app', {});
   });
 });
 
 route('/another', () => {
-  require.ensure([], () => {
-    require('./another/another.tag.html');
+  import('./another/another.tag.html').then(() => {
     $app.innerHTML = "<another></another>";
-    riot.mount('another',{
+    riot.mount('another', {
+      title: "This is text injected on mount only with route"
+    });
+  });
+});
+
+route('/page', () => {
+  import('./page/page.tag.html').then(() => {
+    $app.innerHTML = "<page></page>";
+    riot.mount('page', {
       title: "This is text injected on mount only with route"
     });
   });

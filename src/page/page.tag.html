@@ -1,0 +1,18 @@
+<page>
+  <div class="columns">
+    <div class="column">
+      <h1 class="title">This is <b>page</b> riot tag</h1>
+      <h2>You can find this component in the file called another.tag.html. As you can see a tag can be used as nested component or in standalone page with a route</h2>
+      <h3>
+        { ctrl.opts.title }
+      </h3>
+      <a href="#/">index page</a>
+    </div>
+  </div>
+
+  <script>
+    import { pageSCSS } from './page.scss';
+    import Page from './page.tag.js';
+    this.ctrl = new Page(this, this.opts);
+  </script>
+</page>

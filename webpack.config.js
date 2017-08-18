@@ -7,9 +7,13 @@ const CommonsPlugin = new require("webpack/lib/optimize/CommonsChunkPlugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
-
 const PUBLIC_PATH = 'https://pmcalabrese.github.io/riotjs-webpack/';
 const SERVICE_WORKER_FILENAME = 'service-worker.js';
+
+const extractSass = new ExtractTextPlugin({
+  filename: "[name].[contenthash].css",
+  disable: process.env.NODE_ENV === "development"
+});
 
 module.exports = {
   "resolveLoader": {
@@ -32,6 +36,7 @@ module.exports = {
     chunkFilename: "[chunkhash].[id].chunk.js"
   },
   plugins: [
+    extractSass,
     new SWPrecacheWebpackPlugin(
       {
         cacheId: 'riotjs',
@@ -125,21 +130,27 @@ module.exports = {
         },
       },
       // {
-      //   test: /\.(scss|sass)$/i,
-      //     include: [
-      //         path.resolve(__dirname, 'node_modules')
-      //     ],
-      //     loaders: ["css", "sass"]
+      //   test: /\.css$/i,
+      //   use: ExtractTextPlugin.extract({
+      //     fallback: 'style-loader',
+      //     use: 'css-loader'
+      //   })
       // },
       {
         test: /\.scss$/,
-        use: [{
-          loader: "style-loader" // creates style nodes from JS strings
-        }, {
-          loader: "css-loader" // translates CSS into CommonJS
-        }, {
-          loader: "sass-loader" // compiles Sass to CSS
-        }]
+        use: extractSass.extract({
+            use: [{
+                loader: "css-loader", options:{
+                  minimize: true
+                }
+            }, {
+                loader: "sass-loader", options: {
+                  minimize: true
+                }
+            }],
+            // use style-loader in development
+            fallback: "style-loader"
+        })
       }
     ]
   }
