@@ -1,4 +1,7 @@
 # RiotJS & Webpack 3 boilerplate
+
+A Webpack 3 + Riotjs boilerplate with performance in mind.
+
 [https://pmcalabrese.github.io/riotjs-webpack/](https://pmcalabrese.github.io/riotjs-webpack/)
 
 Features:
@@ -13,6 +16,7 @@ Features:
  - Manifest file
  - Good lighthouse score
  - Routing with riot-route
+ - Critical CSS
 
 ## Install
 

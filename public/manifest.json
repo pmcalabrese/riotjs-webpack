@@ -4,5 +4,6 @@
   "start_url": ".",
   "display": "standalone",
   "background_color": "#fff",
-  "description": "A simpl manifest for the boilerplate"
+  "description": "A webpack 3 riotjs boilerplate with performance in mind",
+  "theme_color": "#ffffff"
 }

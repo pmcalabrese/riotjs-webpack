@@ -1,7 +1,7 @@
 {
   "name": "riotjs-webpack",
   "version": "0.0.1",
-  "description": "A nice webpack riotjs boilerplate with performance in mind",
+  "description": "A webpack 3 riotjs boilerplate with performance in mind",
   "repository": "",
   "main": "app/main.js",
   "author": "Pachito Marco Calabrese <pm.calabrese@gmail.com>",
@@ -54,7 +54,7 @@
     "webpack-md5-hash": "0.0.5"
   },
   "dependencies": {
-    "bulma": "^0.5.1",
+    "bulma": "^0.5.2",
     "lodash": "^4.17.4",
     "riot": "^3.7.0",
     "riot-route": "^3.1.2",

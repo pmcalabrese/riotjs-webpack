@@ -75,7 +75,8 @@ module.exports = {
       serviceWorker: `/${SERVICE_WORKER_FILENAME}`,
     }),
     new CopyWebpackPlugin([
-      { from: 'src/manifest.json' }
+      { from: 'src/manifest.json' },
+      { from: 'src/assets', to:'assets' }
     ]),
     new webpack.ProvidePlugin({ riot: 'riot' }),
     // new webpack.optimize.UglifyJsPlugin({
