@@ -17,7 +17,7 @@
     "build-serve": "rm -rf public && npm run build && npm run critical && npm run serve",
     "serve": "http-server",
     "ghp": "git subtree push --prefix public origin gh-pages",
-    "build-ghp": "rm -rf public && npm run build && npm run ghp"
+    "build-ghp": "rm -rf public && npm run build && npm run critical && npm run ghp"
   },
   "keywords": [
     "riot",
