@@ -9,13 +9,13 @@
       <div id="navMenuTransparentExample" class="navbar-menu">
         <div class="navbar-start">
 
-          <a class="navbar-item " href="#/">
+          <a class="navbar-item { is-active: ctrl.current_route === 'index' }" href="#/">
             index
           </a>
-          <a class="navbar-item " href="#/another">
+          <a class="navbar-item { is-active: ctrl.current_route === 'another' }" href="#/another">
             another
           </a>
-          <a class="navbar-item " href="#/page">
+          <a class="navbar-item { is-active: ctrl.current_route === 'page' }" href="#/page">
             page
           </a>
         </div>
@@ -23,6 +23,7 @@
   </nav>
 
   <script>
+    import { css } from './navigation.scss';
     import Navigation from './navigation.tag.js';
     this.ctrl = new Navigation(this, this.opts);
   </script>

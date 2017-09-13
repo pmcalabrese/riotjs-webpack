@@ -7,6 +7,8 @@ const CommonsPlugin = new require("webpack/lib/optimize/CommonsChunkPlugin");
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
+const ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
+const PreloadWebpackPlugin = require('preload-webpack-plugin');
 const PUBLIC_PATH = 'https://pmcalabrese.github.io/riotjs-webpack/';
 const SERVICE_WORKER_FILENAME = 'service-worker.js';
 
@@ -16,7 +18,7 @@ const extractSass = new ExtractTextPlugin({
 });
 
 module.exports = {
-  "resolveLoader": {
+  resolveLoader: {
     "modules": [
       "./node_modules"
     ]
@@ -57,7 +59,6 @@ module.exports = {
       ]
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    // new HtmlWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "./index.html",
@@ -70,35 +71,20 @@ module.exports = {
       showErrors: true,
       chunks: "all",
       excludeChunks: [],
-      title: "Webpack App",
-      xhtml: true,
       serviceWorker: `/${SERVICE_WORKER_FILENAME}`,
     }),
+    new PreloadWebpackPlugin({
+      rel: 'preload',
+      as: 'script'
+    }),
+    // new ScriptExtHtmlWebpackPlugin({
+    //   defer: './src/styles.css'
+    // }),
     new CopyWebpackPlugin([
       { from: 'src/manifest.json' },
       { from: 'src/assets', to:'assets' }
     ]),
     new webpack.ProvidePlugin({ riot: 'riot' }),
-    // new webpack.optimize.UglifyJsPlugin({
-    //   name: 'vendor',
-    //   // sourceMap: true,
-    //   minimize: true,
-    //   compress: {
-    //     warnings: false,
-    //     screw_ie8: true,
-    //     conditionals: true,
-    //     unused: true,
-    //     comparisons: true,
-    //     sequences: true,
-    //     dead_code: true,
-    //     evaluate: true,
-    //     if_return: true,
-    //     join_vars: true,
-    //   },
-    //   output: {
-    //     comments: false
-    //   },
-    // })
   ],
   module: {
     loaders: [
@@ -142,11 +128,13 @@ module.exports = {
         use: extractSass.extract({
             use: [{
                 loader: "css-loader", options:{
-                  minimize: true
+                  minimize: true,
+                  sourceMap: true
                 }
             }, {
                 loader: "sass-loader", options: {
-                  minimize: true
+                  minimize: true,
+                  sourceMap: true
                 }
             }],
             // use style-loader in development

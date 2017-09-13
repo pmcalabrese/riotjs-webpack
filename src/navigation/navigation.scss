@@ -1,0 +1,13 @@
+navigation {
+    .navbar-start a.navbar-item {
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        font-weight: bold;
+        opacity: 0.65;
+        letter-spacing: -.007px;
+
+        &.is-active {
+            opacity: 1;
+        }
+    }
+}
