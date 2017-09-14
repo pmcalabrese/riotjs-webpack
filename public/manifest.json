@@ -1,7 +1,7 @@
 {
   "name": "Boilerplate",
   "short_name": "RiotJS",
-  "start_url": "/index.html",
+  "start_url": ".",
   "display": "standalone",
   "orientation": "potrait",
   "background_color": "#fff",
