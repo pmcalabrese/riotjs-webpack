@@ -2,6 +2,9 @@
 
 A Webpack 3 + Riotjs boilerplate with performance in mind.
 
+Lighthouse performance
+![Image of Yaktocat](readme_assets/lighthouse_performance.png)
+
 [https://pmcalabrese.github.io/riotjs-webpack/](https://pmcalabrese.github.io/riotjs-webpack/)
 
 Features:
