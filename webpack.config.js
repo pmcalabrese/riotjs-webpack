@@ -75,7 +75,7 @@ module.exports = {
     }),
     new PreloadWebpackPlugin({
       rel: 'preload',
-      include: ['navigationtag', 'apptag']
+      include: ['navigationtag', 'apptag', 'anothertag']
     }),
     // new ScriptExtHtmlWebpackPlugin({
     //   defer: './src/styles.css'
