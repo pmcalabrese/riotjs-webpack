@@ -46,12 +46,7 @@ module.exports = {
         filename: 'service-worker.js',
         minify: true,
         navigateFallback: PUBLIC_PATH + 'index.html',
-        staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
-        importScripts: [
-          { chunkName: 'navigationtag' },
-          { chunkName: 'apptag' },
-          { chunkName: 'anothertag' }
-        ]
+        staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/]
       }
     ),
     new UglifyJSPlugin(),
@@ -80,7 +75,7 @@ module.exports = {
     }),
     new PreloadWebpackPlugin({
       rel: 'preload',
-      include: ['navigationtag', 'apptag', 'anothertag']
+      include: ['navigationtag', 'apptag']
     }),
     // new ScriptExtHtmlWebpackPlugin({
     //   defer: './src/styles.css'
