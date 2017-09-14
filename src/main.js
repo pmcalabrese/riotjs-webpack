@@ -5,34 +5,37 @@ var $app = document.querySelector('#app-root');
 var $nav = document.querySelector('#nav-root');
 
 require.ensure([], () => {
-  require('./navigation/navigation.tag.html');;
+  const navigationTag = require('./navigation/navigation.tag.html');;
   $nav.innerHTML = "<navigation></navigation>";
   riot.mount('navigation', {});
-});
+}, 'navigationtag');
 
 route('/', (name) => {
-  import('./app/app.tag.html').then(() => {
+  require.ensure([], function() {
+    const appTag = require('./app/app.tag.html');
     $app.innerHTML = "<app></app>";
     riot.mount('app', {});
-  });
+  },'apptag')
 });
 
 route('/another', () => {
-  import('./another/another.tag.html').then(() => {
+  require.ensure([], function() {
+    const anotherTag = require('./another/another.tag.html');
     $app.innerHTML = "<another></another>";
     riot.mount('another', {
       title: "This is text injected on mount only with route"
     });
-  });
+  },'anothertag')
 });
 
 route('/page', () => {
-  import('./page/page.tag.html').then(() => {
+  require.ensure([], function() {
+    const pageTag = require('./page/page.tag.html');
     $app.innerHTML = "<page></page>";
     riot.mount('page', {
       title: "This is text injected on mount only with route"
     });
-  });
+  },'pagetag')
 });
 
 route.start(true);

@@ -35,7 +35,7 @@ module.exports = {
     path: path.resolve(__dirname, './public'),
     publicPath: '',
     filename: '[name].bundle.js',
-    chunkFilename: "[chunkhash].[id].chunk.js"
+    chunkFilename: "[chunkhash].[name].chunk.js"
   },
   plugins: [
     extractSass,
@@ -75,7 +75,7 @@ module.exports = {
     }),
     new PreloadWebpackPlugin({
       rel: 'preload',
-      as: 'script'
+      include: ['navigationtag', 'apptag']
     }),
     // new ScriptExtHtmlWebpackPlugin({
     //   defer: './src/styles.css'
