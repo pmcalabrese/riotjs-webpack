@@ -17,9 +17,11 @@ Features:
  - Service Worker with sw-precache [https://github.com/GoogleChrome/sw-precache](https://github.com/GoogleChrome/sw-precache)
  - Minimal footprint (the entire boilerplate index page is 50K including CSS)
  - Manifest file
- - Good lighthouse score
+ - Icons set
+ - Good lighthouse score (90+)
  - Routing with riot-route
  - Critical CSS
+ - Web installed app ready
 
 ## Install
 
