@@ -1,8 +1,9 @@
 {
   "name": "Boilerplate",
   "short_name": "RiotJS",
-  "start_url": ".",
+  "start_url": "/index.html",
   "display": "standalone",
+  "orientation": "potrait",
   "background_color": "#fff",
   "description": "A webpack 3 riotjs boilerplate with performance in mind",
   "theme_color": "#ffffff",
