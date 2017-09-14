@@ -1,6 +1,6 @@
 {
   "name": "riotjs-webpack",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A webpack 3 riotjs boilerplate with performance in mind",
   "repository": {
     "type": "git",
