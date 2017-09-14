@@ -2,7 +2,10 @@
   "name": "riotjs-webpack",
   "version": "0.0.1",
   "description": "A webpack 3 riotjs boilerplate with performance in mind",
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pmcalabrese/riotjs-webpack"
+  },
   "main": "app/main.js",
   "author": "Pachito Marco Calabrese <pm.calabrese@gmail.com>",
   "license": "MIT",
