@@ -47,6 +47,11 @@ module.exports = {
         minify: true,
         navigateFallback: PUBLIC_PATH + 'index.html',
         staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
+        importScripts: [
+          { chunkName: 'navigationtag' },
+          { chunkName: 'apptag' },
+          { chunkName: 'anothertag' }
+        ]
       }
     ),
     new UglifyJSPlugin(),
