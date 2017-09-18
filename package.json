@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server --inline --watch --hot --colors -d --port 3000",
-    "build": "webpack",
+    "build": "webpack -p",
     "critical-components": "node critical.components.js",
     "critical": "node critical.js",
     "build-serve": "rm -rf public && npm run build && npm run critical && npm run serve",
